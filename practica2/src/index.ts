@@ -10,3 +10,15 @@ booleano = false;
 //booleano = null;
 
 let encendido: boolean = true;
+console.log('encendido es:',encendido)
+console.log('encendido es:',{encendido})
+
+encendido = true && false;
+console.log(encendido)
+
+let normal:any = 'hola'
+normal = 10;
+normal = true;
+normal = 11.25
+console.log('Normal: ',normal);
+
