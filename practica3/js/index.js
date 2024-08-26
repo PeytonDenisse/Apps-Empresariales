@@ -1,0 +1,42 @@
+"use strict";
+let normalx = 'Hola mundo';
+normalx = 10;
+normalx = true;
+console.log(normalx);
+let usuario = 'Hola nuevo mundo ';
+console.log(usuario);
+let value;
+value = true;
+value = 'hola undo';
+value = [];
+value = {};
+value = Math.random;
+value = undefined;
+value = null;
+console.log(value);
+let miValor;
+console.log("tipo unkwon:", miValor);
+let value1 = miValor;
+let value2 = miValor;
+//let value3: boolean = miValor; esto marca un error
+//let value4: number = miValor; esto marca un error
+const edad = 20;
+console.log('edad:', edad);
+const sueldo = 1.201;
+const total = Number('14785'); //castear un string a number
+console.log('Total:', total);
+console.log('Sueldo:', sueldo);
+const personaje = "Loky";
+const otroPersonaje = 'Thor';
+const personajeSecundario = `Hulk y ${personaje}`;
+console.log(personajeSecundario);
+const hero = "DeadPool's house";
+console.log(hero);
+console.log(hero.toUpperCase());
+let vengador;
+vengador = "Black Widow";
+console.log(vengador.charAt(2));
+vengador = 150.20;
+console.log(vengador.toFixed(1));
+console.log(vengador.toFixed(1));
+console.log(vengador.toFixed(1));
