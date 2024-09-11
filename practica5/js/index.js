@@ -94,15 +94,250 @@ var UserAccount = /** @class */ (function () {
 }());
 var usuarioX = new UserAccount('Imagine Dragons', 1);
 console.log(usuarioX.name, usuarioX.id);
+//********************************************************************************* */
 //crear al menos 5 clases que se van a usar en el proyecto final
-/*class Producto{
-    id: number;
-    name: string;
-    precio: number;
-
-    constructor(id: number, name: )
-
-}*/
+var Personas = /** @class */ (function () {
+    function Personas(nombre, apellidoPaterno, apellidoMaterno, edad) {
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.edad = edad;
+    }
+    Personas.prototype.getNombre = function () {
+        return this.nombre;
+    };
+    Personas.prototype.setNombre = function (nombre) {
+        this.nombre = nombre;
+    };
+    Personas.prototype.getApellidoPaterno = function () {
+        return this.apellidoPaterno;
+    };
+    Personas.prototype.setApellidoPaterno = function (apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    };
+    Personas.prototype.getApellidoMaterno = function () {
+        return this.apellidoMaterno;
+    };
+    Personas.prototype.setApellidoMaterno = function (apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    };
+    Personas.prototype.getEdad = function () {
+        return this.edad;
+    };
+    Personas.prototype.setEdad = function (edad) {
+        this.edad = edad;
+    };
+    //  METODO 
+    Personas.prototype.mostrarInformacion = function () {
+        console.log("Nombre: ".concat(this.nombre, " ").concat(this.apellidoPaterno, " ").concat(this.apellidoMaterno, " Edad: ").concat(this.edad));
+    };
+    return Personas;
+}());
+//clase usuario: clase hijaa de persona 
+var Usuario = /** @class */ (function (_super) {
+    __extends(Usuario, _super);
+    function Usuario(nombre, apellidoPaterno, apellidoMaterno, edad, username, password, correo) {
+        var _this = _super.call(this, nombre, apellidoPaterno, apellidoMaterno, edad) || this; //mandamos llamar al contructor de la clase padre Personas
+        _this.username = username;
+        _this.password = password;
+        _this.correo = correo;
+        return _this;
+    }
+    Usuario.prototype.getUsername = function () {
+        return this.username;
+    };
+    Usuario.prototype.setUsername = function (username) {
+        this.username = username;
+    };
+    Usuario.prototype.getPassword = function () {
+        return this.password;
+    };
+    Usuario.prototype.setPassword = function (password) {
+        this.password = password;
+    };
+    Usuario.prototype.getCorreo = function () {
+        return this.correo;
+    };
+    Usuario.prototype.setCorreo = function (correo) {
+        this.correo = correo;
+    };
+    // METODOS
+    Usuario.prototype.iniciarSesion = function (username, password) {
+        if (this.username === username && this.password === password) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    return Usuario;
+}(Personas));
+var Cliente = /** @class */ (function (_super) {
+    __extends(Cliente, _super);
+    // Constructor
+    function Cliente(nombre, apellidoPaterno, apellidoMaterno, edad, direccion) {
+        var _this = _super.call(this, nombre, apellidoPaterno, apellidoMaterno, edad) || this; // Llamada al constructor de la clase padre
+        _this.direccion = direccion;
+        _this.historialCompras = [];
+        return _this;
+    }
+    Cliente.prototype.getDireccion = function () {
+        return this.direccion;
+    };
+    Cliente.prototype.setDireccion = function (direccion) {
+        this.direccion = direccion;
+    };
+    Cliente.prototype.getHistorialCompras = function () {
+        return this.historialCompras;
+    };
+    //  METODO
+    Cliente.prototype.agregarCompra = function (producto) {
+        this.historialCompras.push(producto);
+        console.log("Producto ".concat(producto.getNombreProducto(), " a\u00F1adido al historial de compras."));
+    };
+    // METODO para mostrar el historial de compras
+    Cliente.prototype.mostrarHistorialCompras = function () {
+        console.log("Historial de Compras de ".concat(this.getNombre(), " ").concat(this.getApellidoPaterno(), " ").concat(this.getApellidoMaterno(), ":"));
+        this.historialCompras.forEach(function (producto) {
+            console.log("- ".concat(producto.getNombreProducto(), " x ").concat(producto.getCantidad(), " unidades"));
+        });
+    };
+    return Cliente;
+}(Persona));
+//Clase productos
+var Producto = /** @class */ (function () {
+    function Producto(nombreProducto, precio, cantidad) {
+        this.nombreProducto = nombreProducto;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+    Producto.prototype.getNombreProducto = function () {
+        return this.nombreProducto;
+    };
+    Producto.prototype.setNombreProducto = function (nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    };
+    Producto.prototype.getPrecio = function () {
+        return this.precio;
+    };
+    Producto.prototype.setPrecio = function (precio) {
+        this.precio = precio;
+    };
+    Producto.prototype.getCantidad = function () {
+        return this.cantidad;
+    };
+    Producto.prototype.setCantidad = function (cantida) {
+        this.cantidad = cantida;
+    };
+    //METODO
+    Producto.prototype.calcularTotal = function () {
+        return this.precio * this.cantidad;
+    };
+    return Producto;
+}());
+//clase carrito de compras
+var Carrito = /** @class */ (function () {
+    //costructor 
+    function Carrito() {
+        this.productos = [];
+        this.total = 0;
+    }
+    Carrito.prototype.getProductos = function () {
+        return this.productos;
+    };
+    Carrito.prototype.setProducto = function (productos) {
+        this.productos = productos;
+    };
+    Carrito.prototype.getTotal = function () {
+        return this.total;
+    };
+    Carrito.prototype.setTotal = function (total) {
+        this.total = total;
+    };
+    //METODO
+    Carrito.prototype.agregarProducto = function (productos) {
+        this.productos.push(productos);
+        this.total += productos.calcularTotal();
+        console.log("Producto agregado: ".concat(productos.getNombreProducto()));
+    };
+    return Carrito;
+}());
+//Clase MetodoPAgo
+var MetodoPago = /** @class */ (function () {
+    function MetodoPago(tipoPago, detalles) {
+        this.tipoPago = tipoPago;
+        this.detalles = detalles;
+        this.valido = false;
+    }
+    MetodoPago.prototype.getTipoPago = function () {
+        return this.tipoPago;
+    };
+    MetodoPago.prototype.setTipoPago = function (tipoPago) {
+        this.tipoPago = tipoPago;
+    };
+    MetodoPago.prototype.getDetalles = function () {
+        return this.detalles;
+    };
+    MetodoPago.prototype.setDetalles = function (detalles) {
+        this.detalles = detalles;
+    };
+    MetodoPago.prototype.getValido = function () {
+        return this.valido;
+    };
+    MetodoPago.prototype.setValido = function (valido) {
+        this.valido = valido;
+    };
+    //METODOS
+    MetodoPago.prototype.validarPago = function () {
+        this.valido = true;
+        console.log('Pago valido');
+    };
+    return MetodoPago;
+}());
+//Clase Pedido
+var Pedido = /** @class */ (function () {
+    function Pedido(usuario, carrito, metodoPago) {
+        this.usuario = usuario;
+        this.carrito = carrito;
+        this.metodoPago = metodoPago;
+        this.total = carrito.getTotal();
+    }
+    Pedido.prototype.getUsuario = function () {
+        return this.usuario;
+    };
+    Pedido.prototype.setUsuario = function (usuario) {
+        this.usuario = usuario;
+    };
+    Pedido.prototype.getCarrito = function () {
+        return this.carrito;
+    };
+    Pedido.prototype.setCarrito = function (carrito) {
+        this.carrito = carrito;
+    };
+    Pedido.prototype.getMetodoPago = function () {
+        return this.metodoPago;
+    };
+    Pedido.prototype.setMetodoPago = function (metodoPago) {
+        this.metodoPago = metodoPago;
+    };
+    Pedido.prototype.getTotal = function () {
+        return this.total;
+    };
+    Pedido.prototype.setTotal = function (total) {
+        this.total = total;
+    };
+    //METODOS
+    Pedido.prototype.realizarPedido = function () {
+        if (this.metodoPago.getValido()) {
+            console.log('Pedido realizado');
+        }
+        else {
+            console.log('Error al realizar el pedido');
+        }
+    };
+    return Pedido;
+}());
+//********************************************************************************* */
 var Animal = /** @class */ (function () {
     function Animal(nombre) {
         this.nombre = nombre;
