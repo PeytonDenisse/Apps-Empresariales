@@ -94,7 +94,7 @@ miArray6.push('Hamilton');
 miArray6.push(45);
 miArray6.push(true);
 miArray6.push('<img src="https://i.pinimg.com/736x/8e/ed/24/8eed244c52d1846dc943a9227874301a.jpg">');
-miArray6.push('Mis fritas');
+miArray6.push('Mis frutas');
 miArray6.push(25);
 miArray6.push(true);
 miArray6.push('<img src="https://i.pinimg.com/736x/83/98/3d/83983d7b9e927f5eeac2b551b453ec46.jpg"');

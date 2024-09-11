@@ -39,3 +39,39 @@ enum Volumen{
 
 let volumen:Volumen = Volumen.max;
 console.log('Volumen', volumen);
+
+/********************************************************************** */
+enum Rol {
+    Administrador, // 0
+    Cliente,       // 1
+    Invitado       // 2
+}
+
+class Usuarios {
+    private username: string;
+    private rol: Rol;
+
+    constructor(username: string, rol: Rol) {
+        this.username = username;
+        this.rol = rol;
+    }
+
+    mostrarInformacion(): void {
+        console.log(`Usuario: ${this.username}, Rol: ${Rol[this.rol]}`);
+    }
+
+    
+    cambiarRol(nuevoRol: Rol): void {
+        this.rol = nuevoRol;
+        console.log(`Rol actualizado a: ${Rol[this.rol]}`);
+    }
+}
+
+//mandamos a imprimir 
+const usuario1 = new Usuarios('Juan', Rol.Cliente);
+usuario1.mostrarInformacion();
+ // Salida: Usuario: Juan, Rol: Cliente
+
+usuario1.cambiarRol(Rol.Administrador);
+
+/***********************************************************************/

@@ -390,3 +390,69 @@ var Serpiente = /** @class */ (function () {
 var serpiente1 = new Serpiente('Cobra');
 serpiente1.moverse(2);
 serpiente1.hacerSonido('Siseo');
+//********************************************************************************* */
+// Ejemplos de uso
+var persona11 = new Personas('Juan', 'Perez', 'Lopez', 30);
+persona11.mostrarInformacion();
+persona11.setNombre('Pedro');
+persona11.mostrarInformacion();
+console.log(Persona);
+//********************************************************************************* */
+var usuario11 = new Usuario('Juan', 'Perez', 'Lopez', 30, 'juanperez', '123456', 'correo@gmail.com');
+console.log(usuario11.iniciarSesion);
+//********************************************************************************* */
+var cliente1 = new Cliente('Juan', 'Perez', 'Lopez', 30, 'Calle 123, Colonia Centro');
+cliente1.agregarCompra(new Producto('Laptop', 15000, 1));
+cliente1.agregarCompra(new Producto('Mouse', 500, 2));
+cliente1.mostrarHistorialCompras();
+console.log(Cliente);
+//********************************************************************************* */
+var producto1 = new Producto('Laptop', 15000, 1);
+console.log(producto1.calcularTotal());
+console.log(Producto);
+//********************************************************************************* */
+var carrito1 = new Carrito();
+carrito1.agregarProducto(new Producto('Laptop', 15000, 1));
+carrito1.agregarProducto(new Producto('Mouse', 500, 2));
+console.log(carrito1.getTotal());
+console.log(Carrito);
+//********************************************************************************* */
+var metodoPago1 = new MetodoPago('Tarjeta', 'Visa');
+metodoPago1.validarPago();
+console.log(MetodoPago);
+//********************************************************************************* */
+var pedido1 = new Pedido(usuario11, carrito1, metodoPago1);
+pedido1.realizarPedido();
+console.log(Pedido);
+//********************************************************************************* */
+// Define la ruta base para las imágenes
+var basePath = 'src/imagenes/';
+// Array con las imágenes
+var imagenes = [
+    'ClasePersona.png',
+    'ClaseUsuario.png',
+    'ClaseCliente.png',
+    'ClaseProducto.png',
+    'ClaseCarrito.png',
+    'ClaseMetodoPago.png',
+    'ClasePedido.png'
+];
+// Obtén el contenedor donde se insertarán las imágenes
+var container = document.getElementById('image-container');
+if (container) {
+    imagenes.forEach(function (imagen) {
+        // Crea un elemento figure para cada imagen
+        var figure = document.createElement('figure');
+        var img = document.createElement('img');
+        var figcaption = document.createElement('figcaption');
+        // Configura las propiedades de los elementos
+        img.src = "".concat(basePath).concat(imagen);
+        img.alt = imagen;
+        figcaption.textContent = "Imagen: ".concat(imagen);
+        // Agrega los elementos al figure
+        figure.appendChild(img);
+        figure.appendChild(figcaption);
+        // Agrega el figure al contenedor
+        container.appendChild(figure);
+    });
+}
