@@ -115,19 +115,311 @@ class UserAccount{
 
 const usuarioX: User = new UserAccount('Imagine Dragons', 1);
 console.log(usuarioX.name, usuarioX.id);
-
+//********************************************************************************* */
 //crear al menos 5 clases que se van a usar en el proyecto final
 
+class Personas{
+    private nombre: string;
+    private apellidoPaterno: string;
+    private apellidoMaterno: string;
+    private edad: number;
 
-/*class Producto{
-    id: number;
-    name: string;
-    precio: number;
+    constructor(nombre: string, apellidoPaterno: string, apellidoMaterno: string, edad: number){
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.edad = edad;
+    }
 
-    constructor(id: number, name: )
+    getNombre():string {
+        return this.nombre;
+    }
+    setNombre(nombre:string):void {
+        this.nombre = nombre;
+    }
 
-}*/
+    getApellidoPaterno(): string{
+        return this.apellidoPaterno;
+    }
+    setApellidoPaterno(apellidoPaterno: string):void {
+        this.apellidoPaterno = apellidoPaterno;
+    }
 
+    getApellidoMaterno(): string{
+        return this.apellidoMaterno;
+    }
+    setApellidoMaterno(apellidoMaterno: string):void {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    getEdad():number{
+        return this.edad;
+    }
+    setEdad(edad: number):void {
+        this.edad = edad;
+    }
+
+    //  METODO 
+    mostrarInformacion():void{
+        console.log(`Nombre: ${this.nombre} ${this.apellidoPaterno} ${this.apellidoMaterno} Edad: ${this.edad}`);
+    } 
+}
+
+//clase usuario: clase hijaa de persona 
+
+class Usuario extends Personas{
+    private username: string;
+    private password: string;
+    private correo: string;
+
+    constructor(nombre: string, apellidoPaterno: string, apellidoMaterno: string, edad: number, username: string, password: string, correo: string){
+        super(nombre, apellidoPaterno, apellidoMaterno, edad); //mandamos llamar al contructor de la clase padre Personas
+        this.username = username;
+        this.password = password;
+        this.correo = correo;
+    }
+
+    getUsername():string{
+        return this.username;
+    }
+    setUsername(username: string):void{
+        this.username = username;
+    }
+
+    getPassword():string{
+        return this.password;
+    }
+    setPassword(password: string):void{
+        this.password = password;
+    }
+
+    getCorreo():string{
+        return this.correo;
+    }
+    setCorreo(correo: string):void{
+        this.correo = correo;
+    }
+
+    // METODOS
+    iniciarSesion(username: string, password: string):boolean{
+        if(this.username === username && this.password === password){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
+
+class Cliente extends Persona {
+    private direccion: string;
+    private historialCompras: Producto[];
+
+    // Constructor
+    constructor(nombre: string, apellidoPaterno: string, apellidoMaterno: string, edad: number, direccion: string) {
+        super(nombre, apellidoPaterno, apellidoMaterno, edad);  // Llamada al constructor de la clase padre
+        this.direccion = direccion;
+        this.historialCompras = [];
+    }
+
+   
+    public getDireccion(): string {
+        return this.direccion;
+    }
+
+    public setDireccion(direccion: string): void {
+        this.direccion = direccion;
+    }
+
+    public getHistorialCompras(): Producto[] {
+        return this.historialCompras;
+    }
+
+    //  METODO
+    public agregarCompra(producto: Producto): void {
+        this.historialCompras.push(producto);
+        console.log(`Producto ${producto.getNombreProducto()} añadido al historial de compras.`);
+    }
+
+    // METODO para mostrar el historial de compras
+    public mostrarHistorialCompras(): void {
+        console.log(`Historial de Compras de ${this.getNombre()} ${this.getApellidoPaterno()} ${this.getApellidoMaterno()}:`);
+        this.historialCompras.forEach(producto => {
+            console.log(`- ${producto.getNombreProducto()} x ${producto.getCantidad()} unidades`);
+        });
+    }
+}
+
+//Clase productos
+class Producto{
+    private nombreProducto:string;
+    private precio: number;
+    private cantidad: number;
+
+    constructor(nombreProducto: string, precio: number, cantidad: number){
+        this.nombreProducto = nombreProducto;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+
+    getNombreProducto():string{
+        return this.nombreProducto;
+    }
+    setNombreProducto(nombreProducto: string):void{
+        this.nombreProducto = nombreProducto;
+    }
+
+    getPrecio():number{
+        return this.precio;
+    }
+    setPrecio(precio: number):void{
+        this.precio = precio;
+    }
+
+    getCantidad():number{
+        return this.cantidad;
+    }
+    setCantidad(cantida: number):void{
+        this.cantidad = cantida;
+    }
+
+    //METODO
+    calcularTotal():number{
+        return this.precio * this.cantidad;
+    }
+}
+
+//clase carrito de compras
+class Carrito{
+    private productos: Producto[];
+    private total: number;
+
+    //costructor 
+    constructor(){
+        this.productos = [];
+        this.total = 0;
+    }
+
+    getProductos():Producto[] {
+        return this.productos;
+    }
+    setProducto(productos: Producto[]):void{
+        this.productos = productos;
+    }
+
+    getTotal():number{
+        return this.total;
+    }
+    setTotal(total: number):void{
+        this.total = total;
+    }
+
+    //METODO
+    agregarProducto(productos: Producto):void{
+        this.productos.push(productos);
+        this.total += productos.calcularTotal();
+        console.log(`Producto agregado: ${productos.getNombreProducto()}`)
+    }
+    
+}
+
+//Clase MetodoPAgo
+class MetodoPago{
+    private tipoPago: string;
+    private detalles: string;
+    private valido: boolean;
+
+    constructor(tipoPago: string, detalles: string){
+        this.tipoPago = tipoPago;
+        this.detalles = detalles;
+        this.valido = false;
+    }
+    
+    getTipoPago():string{
+        return this.tipoPago;
+    }
+    setTipoPago(tipoPago: string):void{
+        this.tipoPago = tipoPago;
+    }
+
+    getDetalles():string{
+        return this.detalles;
+    }
+    setDetalles(detalles:string):void{
+        this.detalles = detalles
+    }
+
+    getValido():boolean{
+        return this.valido;
+    }
+    setValido(valido: boolean):void{
+        this.valido = valido;
+    }
+
+    //METODOS
+    validarPago():void{
+        this.valido = true;
+        console.log('Pago valido');
+    }
+}
+
+//Clase Pedido
+class Pedido{
+    private usuario: Usuario;
+    private carrito: Carrito;
+    private metodoPago: MetodoPago;
+    private total: number;
+
+    constructor(usuario: Usuario, carrito: Carrito, metodoPago: MetodoPago){
+        this.usuario = usuario;
+        this.carrito = carrito;
+        this.metodoPago = metodoPago;
+        this.total = carrito.getTotal();
+    }
+
+    getUsuario():Usuario{
+        return this.usuario;
+    }
+    setUsuario(usuario: Usuario):void{
+        this.usuario = usuario;
+    }
+
+    getCarrito():Carrito{
+        return this.carrito;
+    }
+    setCarrito(carrito: Carrito):void{
+        this.carrito = carrito;
+    }
+
+    getMetodoPago():MetodoPago{
+        return this.metodoPago;
+    }
+    setMetodoPago(metodoPago: MetodoPago):void{
+        this.metodoPago = metodoPago;
+    }
+
+    getTotal():number{
+        return this.total;
+    }
+    setTotal(total: number):void{
+        this.total = total;
+    }
+
+    //METODOS
+    realizarPedido():void{
+        if(this.metodoPago.getValido()){
+            console.log('Pedido realizado');
+        }else{
+            console.log('Error al realizar el pedido');
+        }
+    }
+}
+
+
+
+
+
+
+//********************************************************************************* */
 class Animal {
     nombre: string;
     constructor(nombre: string){
