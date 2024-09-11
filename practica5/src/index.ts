@@ -511,41 +511,4 @@ console.log(Pedido);
 //********************************************************************************* */
 
 
-// Define la ruta base para las imágenes
-const basePath = 'src/imagenes/';
 
-// Array con las imágenes
-const imagenes = [
-    'ClasePersona.png',
-    'ClaseUsuario.png',
-    'ClaseCliente.png',
-    'ClaseProducto.png',
-    'ClaseCarrito.png',
-    'ClaseMetodoPago.png',
-    'ClasePedido.png'
-];
-
-// Obtén el contenedor donde se insertarán las imágenes
-const container = document.getElementById('image-container');
-
-if (container) {
-    imagenes.forEach(imagen => {
-        // Crea un elemento figure para cada imagen
-        const figure = document.createElement('figure');
-        const img = document.createElement('img');
-        const figcaption = document.createElement('figcaption');
-
-        // Configura las propiedades de los elementos
-        img.src = `${basePath}${imagen}`;
-        img.alt = imagen;
-
-        figcaption.textContent = `Imagen: ${imagen}`;
-
-        // Agrega los elementos al figure
-        figure.appendChild(img);
-        figure.appendChild(figcaption);
-
-        // Agrega el figure al contenedor
-        container.appendChild(figure);
-    });
-}

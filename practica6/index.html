@@ -3,11 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica 6</title>
+    <title>Práctica de Enums y Clases en TypeScript</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .code-block {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .result {
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>
-        Practica 6
-    </h1>
+    <div class="container">
+        <h1 class="text-center mb-4">Práctica de Enums y Clases en TypeScript</h1>
+        
+        <h2>Código TypeScript</h2>
+        <div class="code-block">
+            <pre><code>// enums
+enum Color {
+    rojo = 50,
+    verde,
+    azul
+}
+
+console.log(Color.verde);
+console.log(Color.rojo);
+
+let color1: Color = Color.rojo;
+color1 = Color.verde;
+
+enum CadinalDirection {
+    north = 'Norte',
+    South = 'Sur',
+    East = 'Este',
+    West = 'Oeste'
+}
+
+let directio: CadinalDirection = CadinalDirection.north;
+console.log('Direction', directio);
+
+enum StatusCodes {
+    Succes = 200,
+    NotFound = 404,
+    ServerError = 500
+}
+
+let statusCode: StatusCodes = StatusCodes.Succes;
+console.log('Status Code', statusCode);
+
+enum Volumen {
+    min = 1,
+    medio = 5,
+    max = 10
+}
+
+let volumen: Volumen = Volumen.max;
+console.log('Volumen', volumen);
+
+/**********************************************************************/
+enum Rol {
+    Administrador, // 0
+    Cliente,       // 1
+    Invitado       // 2
+}
+
+class Usuarios {
+    private username: string;
+    private rol: Rol;
+
+    constructor(username: string, rol: Rol) {
+        this.username = username;
+        this.rol = rol;
+    }
+
+    mostrarInformacion(): void {
+        console.log(`Usuario: ${this.username}, Rol: ${Rol[this.rol]}`);
+    }
+
+    cambiarRol(nuevoRol: Rol): void {
+        this.rol = nuevoRol;
+        console.log(`Rol actualizado a: ${Rol[this.rol]}`);
+    }
+}
+
+//mandamos a imprimir 
+const usuario1 = new Usuarios('Juan', Rol.Cliente);
+usuario1.mostrarInformacion(); // Salida: Usuario: Juan, Rol: Cliente
+usuario1.cambiarRol(Rol.Administrador);
+</code></pre>
+        </div>
+        
+        <h2>Resultados</h2>
+        <div class="result">
+            <p><strong>Color.verde:</strong> 51</p>
+            <p><strong>Color.rojo:</strong> 50</p>
+            <p><strong>Direction:</strong> Norte</p>
+            <p><strong>Status Code:</strong> 200</p>
+            <p><strong>Volumen:</strong> 10</p>
+            <p><strong>Usuario:</strong> Juan, Rol: Cliente</p>
+            <p><strong>Rol actualizado a:</strong> Administrador</p>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 </body>
 </html>

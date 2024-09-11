@@ -4,20 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practica 5</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-img-top {
+            max-height: 200px;
+            object-fit: cover;
+        }
+        .card-body {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .card-body h5 {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-
-    <h1>Practica 5</h1>
-    <p>Se definicieron 5 clases con sus respectivas herencias 
-    </p>
-    <script src="js/index.js"></script>
-    <div id="image-container"></div>
+    <div class="container">
+        <h1 class="text-center mb-4">Practica 5</h1>
+        <p class="text-center mb-5">Se definieron 7 clases con sus respectivas herencias. A continuación se muestran las imágenes representativas de cada clase.</p>
+        
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a data-fancybox="gallery" href="imagenes/ClassePersona.png">
+                        <img src="imagenes/ClassePersona.png" class="card-img-top" alt="Clase Persona">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Clase Persona</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a data-fancybox="gallery" href="imagenes/ClasseUsuario.png">
+                        <img src="imagenes/ClasseUsuario.png" class="card-img-top" alt="Clase Usuario">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Clase Usuario</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a data-fancybox="gallery" href="imagenes/ClaseCliente.png">
+                        <img src="imagenes/ClaseCliente.png" class="card-img-top" alt="Clase Cliente">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Clase Cliente</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a data-fancybox="gallery" href="imagenes/ClaseProducto.png">
+                        <img src="imagenes/ClaseProducto.png" class="card-img-top" alt="Clase Producto">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Clase Producto</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a data-fancybox="gallery" href="imagenes/ClasePedido.png">
+                        <img src="imagenes/ClasePedido.png" class="card-img-top" alt="Clase Pedido">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Clase Pedido</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a data-fancybox="gallery" href="imagenes/ClaseCarrito.png">
+                        <img src="imagenes/ClaseCarrito.png" class="card-img-top" alt="Clase Carrito">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Clase Carrito</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a data-fancybox="gallery" href="imagenes/ClaseMetodoPago.png">
+                        <img src="imagenes/ClaseMetodoPago.png" class="card-img-top" alt="Clase Metodo de Pago">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Clase Metodo de Pago</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-
-
-
-    
-
-
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 </body>
 </html>
