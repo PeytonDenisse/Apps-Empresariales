@@ -1,42 +1,49 @@
-"use strict";
 console.log("Hola CodeSpaces");
-const nuevoHeroe = "Loky";
+var nuevoHeroe = "Loky";
 function returnName() {
     return nuevoHeroe;
 }
-const heroeNombre = returnName();
-let otroNombre = returnName();
+var heroeNombre = returnName();
+var otroNombre = returnName();
 console.log("De que tipo es", typeof otroNombre);
 //parametros obligatorios en funciones 
-const nombreCompleto = (nombre, apellido) => {
-    return `${nombre} ${apellido}`;
+var nombreCompleto = function (nombre, apellido) {
+    return "".concat(nombre, " ").concat(apellido);
 };
-const nombre = nombreCompleto("Peyton", "Manning");
+var nombre = nombreCompleto("Peyton", "Manning");
 console.log(nombre);
 //parametros opcionales en funciones SWIF
-const nombreCompleto2 = (nombre, apellido) => {
-    return `${nombre} ${apellido || 'sin apellido'}`;
+var nombreCompleto2 = function (nombre, apellido) {
+    return "".concat(nombre, " ").concat(apellido || 'sin apellido');
 };
-const nombre2 = nombreCompleto2("Peyton");
+var nombre2 = nombreCompleto2("Peyton");
 console.log(nombre2);
 //parametros por defecto en funciones
-const nombreCompleto3 = (nombre, apellido, mayusculas = false) => {
+var nombreCompleto3 = function (nombre, apellido, mayusculas) {
+    if (mayusculas === void 0) { mayusculas = false; }
     if (mayusculas) {
-        return `${nombre || 'sin nombre'} ${apellido || 'sin apellido'}`.toUpperCase();
+        return "".concat(nombre || 'sin nombre', " ").concat(apellido || 'sin apellido').toUpperCase();
     }
     else {
-        return `${nombre || 'sin nombre'} ${apellido || 'sin apellido'}`;
+        return "".concat(nombre || 'sin nombre', " ").concat(apellido || 'sin apellido');
     }
 };
-const nombre3 = nombreCompleto3("Peyton", "Manning", true);
+var nombre3 = nombreCompleto3("Peyton", "Manning", true);
 console.log(nombre3);
 //esta funcion en ternario 
-const nombreCompleto4 = (nombre, apellido, mayusculas = false) => (mayusculas) ? `${nombre || 'sin nombre'} ${apellido || 'sin apellido'}`.toUpperCase() : `${nombre || 'sin nombre'} ${apellido || 'sin apellido'}`;
-const nombre4 = nombreCompleto4("Peyton", "Manning", true);
-console.log(nombre4);
-//operador Rest
-const nombreCompleto5 = (nombre, ...restParametros) => {
-    return `${nombre} ${restParametros.join(' ')}`;
+var nombreCompleto4 = function (nombre, apellido, mayusculas) {
+    if (mayusculas === void 0) { mayusculas = false; }
+    return (mayusculas) ? "".concat(nombre || 'sin nombre', " ").concat(apellido || 'sin apellido').toUpperCase() : "".concat(nombre || 'sin nombre', " ").concat(apellido || 'sin apellido');
 };
-const nombre5 = nombreCompleto5("Peyton", "Manning", "Veloz");
+var nombre4 = nombreCompleto4("Peyton", "Manning", true);
+console.log(nombre4);
+//operador Rest donde edad queda al ultimo
+var nombreCompleto5 = function (nombre, edad) {
+    var restParametros = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        restParametros[_i - 2] = arguments[_i];
+    }
+    return "".concat(nombre, " ").concat(restParametros.join(' '));
+};
+var nombre5 = nombreCompleto5("Peyton", 44, "Manning", "Hijo");
 console.log(nombre5);
