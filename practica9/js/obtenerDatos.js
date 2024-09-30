@@ -1,0 +1,1 @@
+const obtenerDatos = {nombre, apellido, edad} 
