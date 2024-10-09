@@ -1,11 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mi Sitio Web</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/practica16/css/">
+    <style>
+        /* Estilos personalizados */
+        .hero {
+            background: url('https://via.placeholder.com/1500x500') center center no-repeat;
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+        .footer a {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #ffc107;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hola</h1>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mi Sitio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/services">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Bienvenido a Mi Sitio</h1>
+            <p>Descubre nuestros productos y servicios increíbles.</p>
+            <a href="#products" class="btn btn-primary btn-lg">Ver Productos</a>
+        </div>
+    </div>
+
+    <!-- Sección de Productos/Servicios -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4" id="product">Nuestros Productos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Producto 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 1</h5>
+                        <p class="card-text">Descripción del producto 1. Excelente calidad y precio.</p>
+                        <a href="#" class="btn btn-primary">Comprar ahora</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Producto 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 2</h5>
+                        <p class="card-text">Descripción del producto 2. Lo mejor para tu hogar.</p>
+                        <a href="#" class="btn btn-primary">Comprar ahora</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Producto 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 3</h5>
+                        <p class="card-text">Descripción del producto 3. Innovador y útil.</p>
+                        <a href="#" class="btn btn-primary">Comprar ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+            <p>Síguenos en 
+                <a href="#" class="ms-2">Facebook</a> | 
+                <a href="#">Instagram</a> | 
+                <a href="#">Twitter</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
