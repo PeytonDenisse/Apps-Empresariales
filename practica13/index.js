@@ -41,26 +41,22 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Servir archivos estáticos (como el HTML, CSS, etc.)
+
 app.use(express.static('public'));
 
-// Endpoint para obtener archivos y carpetas del directorio actual
 app.get('/api/files', (req, res) => {
     const directoryPath = path.join(__dirname);
 
-    // Leer todos los archivos y carpetas en el directorio actual
     fs.readdir(directoryPath, { withFileTypes: true }, (err, files) => {
         if (err) {
             return res.status(500).json({ error: 'No se pudieron leer los archivos' });
         }
 
-        // Mapeamos la lista de archivos y carpetas a un formato más simple
         const filesInfo = files.map(file => ({
             name: file.name,
             isDirectory: file.isDirectory()
         }));
 
-        // Enviamos la lista de archivos al cliente
         res.json(filesInfo);
     });
 });
