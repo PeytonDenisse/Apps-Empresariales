@@ -1,9 +1,10 @@
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
+
 const PUERTO = 3000;
 
 const server = http.createServer((req, res) => {
-
     res.setHeader('Content-Type', 'text/html');
 
     // Simple Router
@@ -35,7 +36,10 @@ const server = http.createServer((req, res) => {
             break;
     }
 
-    fs.readFile(ruta, (err, data) => {
+    // Usamos path.resolve para construir una ruta absoluta
+    const filePath = path.resolve(ruta);
+
+    fs.readFile(filePath, (err, data) => {
         if (err) {
             res.writeHead(404, { 'Content-Type': 'text/html' });
             return res.end('404 Not Found');
@@ -47,12 +51,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PUERTO, () => {
-    console.log(`Servidor en el puerto ${PUERTO}`);
+    console.log(`Servidor corriendo en http://localhost:${PUERTO}`);
 });
-
- 
-//Reto
-// De esta practica16 hacer un sitio 100% funcional
-// usando BootStrap5 y un poco de CSS
-// Debe tener un menu de navegacion con las opciones
-// Inicio, Acerca de, Productos, Servicios y Contacto
