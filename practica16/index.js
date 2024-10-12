@@ -7,7 +7,6 @@ const PUERTO = 3000;
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
 
-    // Simple Router
     let ruta = './views';
     switch (req.url) {
         case '/':
